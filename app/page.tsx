@@ -81,13 +81,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 pointer-events-none z-0 bg-fixed">
           <Image
-            src="/_.jpeg"
+            src="/1.jpg"
             alt="Cosmic Scene"
             width={1920}
             height={1080}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
             priority
           />
         </div>
@@ -107,7 +107,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1
-            className="font-press-start text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r text-slate-200 bg-clip-text text-transparent"
+            className="font-retro-futurism text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
