@@ -96,17 +96,11 @@ export default function Home() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-9dJGUDSbt9V5YMTmS9qZq0PQ3f4WFC.png"
-              alt="Zenith Banner"
-              width={1200}
-              height={400}
-              className="mx-auto mb-8 animate-pulse-glow"
-            />
+            
           </motion.div>
 
           <motion.h1
-            className="font-press-start text-4xl md:text-6xl mb-6 animate-text-gradient bg-gradient-to-r from-zenith-red via-zenith-purple to-zenith-blue bg-clip-text text-transparent"
+            className="font-press-start text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r text-slate-200 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -140,30 +134,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Floating Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-          
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
-          >
-            <Image
-              src="/nobgsuperman.svg"
-              alt="Floating Astronaut"
-              width={80}
-              height={80}
-              className="absolute bottom-1/4 right-1/4 animate-float"
-              style={{ animationDelay: "-2s" }}
-            />
-          </motion.div>
-        </div>
+        
       </section>
 
       {/* Features Section */}
