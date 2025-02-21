@@ -100,7 +100,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1
-            className="font-press-start text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r text-slate-200 bg-clip-text text-transparent"
+            className="font-press-start text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r text-slate-100 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -133,8 +133,6 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
-
-        
       </section>
 
       {/* Features Section */}
@@ -192,6 +190,7 @@ export default function Home() {
                       alt={`Speaker ${index + 1}`}
                       fill
                       className="rounded-lg object-cover"
+                      priority 
                     />
                   </div>
                   <div className="text-center">
