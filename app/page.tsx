@@ -1,5 +1,6 @@
 "use client"
 
+// Remove this import
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
@@ -8,6 +9,7 @@ import { GlowButton } from "@/components/ui/glow-button"
 import { Modal } from "@/components/ui/modal"
 import { Rocket, Users, Lightbulb } from "lucide-react"
 import { cn } from "@/lib/utils"
+// Remove VantaBackground import
 
 const features = [
   {
@@ -78,13 +80,19 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zenith-purple/20 via-zenith-red/20 to-black" />
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zenith-blue/20 via-transparent to-transparent" />
+        {/* Background Image */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <Image
+            src="/_.jpeg"
+            alt="Cosmic Scene"
+            width={1920}
+            height={1080}
+            className="w-full h-full object-contain"
+            priority
+          />
         </div>
 
-        {/* Content */}
+        {/* Content continues... */}
         <motion.div
           className="relative z-10 container mx-auto px-4 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -96,11 +104,10 @@ export default function Home() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            
           </motion.div>
 
           <motion.h1
-            className="font-press-start text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r text-slate-100 bg-clip-text text-transparent"
+            className="font-press-start text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r text-slate-200 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
