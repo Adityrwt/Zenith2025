@@ -35,9 +35,24 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="bg-black min-h-screen">
-        {children}
+    <html lang="en">
+      <body className={`${pressStart.variable} ${spaceGrotesk.variable} font-sans bg-black text-white`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          <AnimatePresence mode="wait">
+            <Suspense fallback={<LoadingScreen />}>
+            
+              <div className="relative min-h-screen flex flex-col z-10">
+                <Navbar />
+                <main className="flex-grow">{children}</main>
+                <Footer />
+              </div>
+            </Suspense>
+          </AnimatePresence>
+        </ThemeProvider>
       </body>
     </html>
   )
