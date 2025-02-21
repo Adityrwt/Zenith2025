@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none z-0 bg-fixed">
           <Image
@@ -116,7 +116,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl mb-8 text-gray-300 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-zinc-700"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -124,27 +124,13 @@ export default function Home() {
             Join us for the biggest entrepreneurship summit of 2025
           </motion.p>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Link href="/register">
-              <GlowButton glowColor="rgba(255, 51, 102, 0.5)">Register Now</GlowButton>
-            </Link>
-            <Link href="/about">
-              <GlowButton variant="outline" glowColor="rgba(51, 102, 255, 0.5)">
-                Learn More
-              </GlowButton>
-            </Link>
-          </motion.div>
+          
         </motion.div>
+        
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-black/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-cosmic-gradient backdrop-blur-sm">
+      <div className="container mx-auto px-4">
           <motion.h2
             className="font-press-start text-3xl md:text-4xl text-center mb-12 animate-text-gradient bg-gradient-to-r from-zenith-red to-zenith-blue bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
@@ -179,7 +165,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
       {/* Feature Modal */}
       <Modal
         isOpen={!!selectedFeature}

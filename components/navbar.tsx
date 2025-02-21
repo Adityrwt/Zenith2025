@@ -17,11 +17,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className=" w-full z-50 bg-black/70 backdrop-blur-md border-b border-purple-500/30">
-      <div className="relative">
-        {/* Neon glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-800/20 via-fuchsia-600/20 to-purple-800/20" />
-        
+    <nav className=" w-full bg-cosmic-gradient backdrop-blur-md border-b border-purple-500/30">
+      <div className="relative">   
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="flex items-center justify-between h-20">
             <div className="flex-shrink-0 relative group">
