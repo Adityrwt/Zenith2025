@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { DownloadButton } from "@/components/download-button"
 
 export default function About() {
   return (
@@ -19,38 +20,16 @@ export default function About() {
               With our theme of "Retro Futurism," we're exploring how past visions of the future can inspire today's
               innovations and tomorrow's breakthroughs.
             </p>
-          </div>
-        </section>
 
-        {/* Leadership Messages */}
-        <section className="mb-20">
-          <h2 className="font-press-start text-3xl text-center mb-12 text-zenith-purple">Leadership Speaks</h2>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* President's Message */}
-            <div className="space-y-4">
-              <div className="aspect-square relative w-48 mx-auto mb-6">
-                <Image src="/placeholder.svg" alt="President" fill className="rounded-full object-cover" />
+            {/* Download Brochure Container */}
+            <div className="mt-12 p-6 border border-zenith-purple/30 rounded-lg bg-black/50 backdrop-blur-sm">
+              <div className="flex flex-col items-center space-y-4">
+                <h3 className="font-press-start text-2xl text-zenith-purple">Event Brochure</h3>
+                <p className="text-gray-400 text-center">
+                  Download our detailed event brochure to learn more about speakers, workshops, and schedule.
+                </p>
+                <DownloadButton />
               </div>
-              <h3 className="font-press-start text-xl text-center text-zenith-red">Dr. Jane Doe</h3>
-              <p className="text-center text-gray-400 mb-4">President, EDC MAIT</p>
-              <blockquote className="text-gray-300 italic">
-                "Zenith represents our commitment to fostering innovation and entrepreneurship among students. Join us
-                as we explore the intersection of retro aesthetics and futuristic technology."
-              </blockquote>
-            </div>
-
-            {/* Vice President's Message */}
-            <div className="space-y-4">
-              <div className="aspect-square relative w-48 mx-auto mb-6">
-                <Image src="/placeholder.svg" alt="Vice President" fill className="rounded-full object-cover" />
-              </div>
-              <h3 className="font-press-start text-xl text-center text-zenith-blue">Prof. John Smith</h3>
-              <p className="text-center text-gray-400 mb-4">Vice President, EDC MAIT</p>
-              <blockquote className="text-gray-300 italic">
-                "Our vision is to create a platform where ideas flourish and innovations take flight. Zenith 2025 is
-                your gateway to the future of entrepreneurship."
-              </blockquote>
             </div>
           </div>
         </section>

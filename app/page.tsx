@@ -137,7 +137,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            What to Expect
+
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
