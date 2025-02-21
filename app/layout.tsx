@@ -4,7 +4,6 @@ import "./globals.css"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
-import { BackgroundController } from "@/components/background-controller"
 import { Suspense } from "react"
 import { LoadingScreen } from "@/components/loading-screen"
 import { validateEnv } from '@/lib/env'
@@ -45,7 +44,7 @@ export default function RootLayout({
         >
           <AnimatePresence mode="wait">
             <Suspense fallback={<LoadingScreen />}>
-              <BackgroundController />
+            
               <div className="relative min-h-screen flex flex-col z-10">
                 <Navbar />
                 <main className="flex-grow">{children}</main>

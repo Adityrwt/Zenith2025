@@ -15,7 +15,6 @@ interface Sponsor {
   }
 }
 
-
 const sponsors: Sponsor[] = [
   // Platinum Sponsors (Major partners)
   {

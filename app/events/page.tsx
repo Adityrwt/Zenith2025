@@ -4,8 +4,6 @@ import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Modal } from "@/components/ui/modal"
-import { ThreeModel } from "@/components/three-model"
 
 const events = [
   {
@@ -106,14 +104,7 @@ export default function Events() {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
             >
-              <div className="aspect-video relative">
-                <ThreeModel
-                  modelType={event.modelType}
-                  className="absolute inset-0"
-                  scale={0.8}
-                  autoRotate={true}
-                />
-              </div>
+              
 
               <div className="p-6">
                 <h3 className="font-press-start text-xl mb-2 text-zenith-red group-hover:text-zenith-purple transition-colors">
@@ -136,33 +127,7 @@ export default function Events() {
           ))}
         </div>
 
-        <Modal isOpen={!!selectedEvent} onClose={() => setSelectedEvent(null)} title={selectedEvent?.title || ""}>
-          <div className="space-y-4">
-            <div className="aspect-video relative rounded-lg overflow-hidden">
-              <ThreeModel
-                modelType={selectedEvent?.modelType}
-                className="absolute inset-0"
-                scale={1}
-                autoRotate={true}
-              />
-            </div>
-            <div className="space-y-4">
-              <p className="text-gray-300">{selectedEvent?.details}</p>
-              <div className="p-4 rounded-lg bg-white/5 border border-white/10">
-                <h4 className="font-press-start text-lg mb-2 text-zenith-purple">Prize Pool</h4>
-                <p className="text-2xl font-bold text-zenith-red">{selectedEvent?.prize}</p>
-              </div>
-              <div className="space-y-2 text-sm text-gray-400">
-                <p>📅 {selectedEvent?.date}</p>
-                <p>⏰ {selectedEvent?.time}</p>
-                <p>📍 {selectedEvent?.venue}</p>
-              </div>
-              <Button className="w-full bg-zenith-red hover:bg-zenith-red/80" onClick={() => setSelectedEvent(null)}>
-                Close
-              </Button>
-            </div>
-          </div>
-        </Modal>
+        
       </div>
     </div>
   )
