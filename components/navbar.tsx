@@ -17,7 +17,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed w-full z-50 bg-black/70 backdrop-blur-md border-b border-purple-500/30">
+    <nav className=" w-full z-50 bg-black/70 backdrop-blur-md border-b border-purple-500/30">
       <div className="relative">
         {/* Neon glow effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-800/20 via-fuchsia-600/20 to-purple-800/20" />
