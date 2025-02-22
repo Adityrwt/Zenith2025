@@ -7,11 +7,11 @@ import Image from 'next/image'
 import { DownloadButton } from "@/components/download-button"
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Events", href: "/events" },
-  { name: "Sponsors", href: "/sponsors" },
-  { name: "Register", href: "/register" },
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/about" },
+  { name: "EVENTS", href: "/events" },
+  { name: "SPONSORS", href: "/sponsors" },
+  { name: "REGISTER", href: "/register" },
 ]
 
 export function Navbar() {
@@ -85,7 +85,7 @@ export function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="inline-block text-stone-800 text-xl sm:text-2xl md:text-3xl font-comfortaa transition-all duration-300 
+                  className="inline-block text-stone-800 text-xl sm:text-2xl md:text-3xl font-['Bangers'] tracking-wider transition-all duration-300 
                     hover:text-pink-400 hover:scale-110 hover:-rotate-3
                     focus:outline-none focus:text-pink-400 
                     animate-float"
