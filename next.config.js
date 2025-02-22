@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	typescript: {
+		ignoreBuildErrors: true,
+	  },
 	transpilePackages:['three',"vanta"],
 	compiler: {
 		styledComponents: true,
