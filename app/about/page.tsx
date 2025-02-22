@@ -78,9 +78,17 @@ const RetroScanner = () => {
   )
 }
 
+// Add this import at the top
+import { motion, useScroll, useTransform } from "framer-motion"
+
 const About = () => {
   const vantaRef = useRef(null)
   const vantaEffect = useRef(null)
+  
+  // Add scroll animation logic
+  const { scrollY } = useScroll()
+  const textY = useTransform(scrollY, [0, 300], [0, 500])
+  const textOpacity = useTransform(scrollY, [0, 200], [1, 0])
 
   useEffect(() => {
     const loadVanta = async () => {
@@ -97,7 +105,7 @@ const About = () => {
           highlightColor: 0x7992ed,
           midtoneColor: 0xe14ecd,
           lowlightColor: 0xc4c0dc,
-          speed: 0.5
+          speed: 2
         })
       }
     }
@@ -125,10 +133,18 @@ const About = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-zenith-purple opacity-20 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute bottom-10 left-10 w-40 h-40 bg-zenith-blue opacity-10 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
             
-            <h1 className="font-retro-futurism text-7xl md:text-9xl text-center mb-12 bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent relative">
-              <span className="absolute inset-0 text-7xl md:text-9xl text-center blur-sm text-purple-500/20 animate-pulse">ABOUT ZENITH</span>
-              ABOUT ZENITH
-            </h1>
+            <motion.h1 
+              style={{ y: textY, opacity: textOpacity }}
+              className="font-retro-futurism text-7xl md:text-9xl text-center mb-12 bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent relative"
+            >
+              <motion.span 
+                style={{ y: textY, opacity: textOpacity }}
+                className="absolute inset-0 text-7xl md:text-9xl text-center blur-sm text-purple-500/20 animate-pulse"
+              >
+                ZENITH
+              </motion.span>
+              ZENITH
+            </motion.h1>
 
             <div className="grid md:grid-cols-2 gap-16">
               <div className="text-xl md:text-2xl mb-8 text-stone-700 col-span-2">
@@ -215,16 +231,25 @@ const About = () => {
                       <div className="absolute left-1/2 w-4 h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full transform -translate-x-1/2 group-hover:scale-150 transition-all duration-300">
                         <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-ping opacity-75"></div>
                       </div>
-                      <div className="w-full p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
-                        <div className="font-press-start text-sm text-stone-800 mb-2">
-                          {event.time} - {event.date}
+                      <div className="w-full p-8 backdrop-blur-sm rounded-[3rem] border border-white/20 transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)] relative overflow-hidden"
+                           style={{
+                             background: index % 2 === 0 
+                               ? 'linear-gradient(135deg, rgba(253, 230, 138, 0.1) 0%, rgba(252, 211, 77, 0.1) 100%)'
+                               : 'linear-gradient(135deg, rgba(252, 211, 77, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%)'
+                           }}>
+                        <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-yellow-100/5 blur-3xl"></div>
+                        <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-yellow-100/5 blur-3xl"></div>
+                        <div className="relative z-10">
+                          <div className="font-press-start text-sm text-white/80 mb-2">
+                            {event.time} - {event.date}
+                          </div>
+                          <h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
+                            {event.title}
+                          </h2>
+                          <p className="text-white/70 font-medium">
+                            {event.description}
+                          </p>
                         </div>
-                        <h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-stone-800 to-zinc-800 bg-clip-text text-transparent">
-                          {event.title}
-                        </h2>
-                        <p className="bg-gradient-to-r from-stone-800 via-zinc-700 to-brown-800 bg-clip-text text-transparent font-medium">
-                          {event.description}
-                        </p>
                       </div>
                     </div>
                   </div>
