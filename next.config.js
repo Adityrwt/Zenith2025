@@ -30,7 +30,7 @@ const nextConfig = {
 	},
 	// Add assetPrefix for production
 	assetPrefix: process.env.NODE_ENV === 'production' 
-		? 'https://zennith-esummit.vercel.app' 
+		? 'https://zenith-peach.vercel.app' 
 		: '',
 	webpack: (config) => {
 		config.module.rules.push({
