@@ -160,22 +160,36 @@ export default function Home() {
               <motion.button
                 key={index}
                 onClick={() => setSelectedFeature(feature)}
-                className="group relative w-[320px] md:w-[380px] h-[475px] md:h-[565px] mx-auto rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+                className="group relative w-[320px] md:w-[380px] h-[475px] md:h-[565px] mx-auto rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
               >
-                <div className="absolute inset-0 duration-300 rounded-lg" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
                 
                 <Image
-                  src="/speakercard.jpeg"
+                  src={
+                    feature.title === "Keynote Speakers"
+                      ? "/speakercard.jpeg"
+                      : feature.title === "Workshops"
+                      ? "/workshopcard.png"
+                      : "/networkingcard.png"
+                  }
                   alt={feature.title}
                   width={380}
                   height={565}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
                   priority
                 />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-black/50 backdrop-blur-sm">
+                  <h3 className="text-white text-xl font-bold mb-2 drop-shadow-lg">{feature.title}</h3>
+                  <p className="text-white text-sm drop-shadow-md">{feature.description}</p>
+                </div>
               </motion.button>
             ))}
           </div>
@@ -188,25 +202,25 @@ export default function Home() {
         onClose={() => setSelectedFeature(null)}
         title={selectedFeature?.details.title || ""}
       >
-        <motion.div className="relative" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div className="relative bg-amber-50/95 p-6 rounded-lg" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           {selectedFeature?.title === "Keynote Speakers" && selectedFeature.details.images && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               {selectedFeature.details.images.map((image, index) => (
                 <div key={index} className="space-y-2">
-                  <div className="relative aspect-square">
+                  <div className="relative aspect-square shadow-lg rounded-lg overflow-hidden">
                     <Image
                       src={image}
                       alt={`Speaker ${index + 1}`}
                       fill
-                      className="rounded-lg object-cover"
+                      className="rounded-lg object-cover hover:scale-105 transition-transform duration-300"
                       priority 
                     />
                   </div>
                   <div className="text-center">
-                    <h4 className="text-lg font-semibold text-gray-200">
+                    <h4 className="text-lg font-semibold text-gray-800">
                       {selectedFeature?.details?.speakers?.[index]?.name || "Unknown Speaker"}
                     </h4>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <p className="text-sm text-gray-600 mt-1">
                       {selectedFeature?.details?.speakers?.[index]?.title || "No title available"}
                     </p>
                   </div>
@@ -215,8 +229,8 @@ export default function Home() {
             </div>
           )}
           
-          <p className="text-gray-300 leading-relaxed">{selectedFeature?.details.content}</p>
-          <GlowButton className="mt-6" onClick={() => setSelectedFeature(null)}>
+          <p className="text-gray-700 leading-relaxed">{selectedFeature?.details.content}</p>
+          <GlowButton className="mt-6 bg-amber-100 hover:bg-amber-200 text-gray-800" onClick={() => setSelectedFeature(null)}>
             Close
           </GlowButton>
         </motion.div>
