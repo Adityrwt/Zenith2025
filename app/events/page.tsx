@@ -84,15 +84,27 @@ export default function Events() {
   const [selectedEvent, setSelectedEvent] = useState<typeof events[0] | null>(null)
 
   return (
-    <div className="min-h-screen pt-20 bg-black/50 backdrop-blur-sm">
+    <div className="min-h-screen pt-20 relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/eventbg.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      </div>
+
       <div className="container mx-auto px-4 py-12">
         <motion.h1
-          className="font-press-start text-4xl text-center mb-12 bg-gradient-to-r from-zenith-red to-zenith-blue bg-clip-text text-transparent"
+          className="font-extrabold text-6xl text-center mb-12 bg-gradient-to-r from-zenith-red to-zenith-blue bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Events
+          EVENTS
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">

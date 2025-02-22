@@ -9,7 +9,9 @@ import { LoadingScreen } from "@/components/loading-screen"
 import { validateEnv } from '@/lib/env'
 import type React from "react"
 import { AnimatePresence } from "framer-motion"
+import { Orbitron } from 'next/font/google'
 
+const orbitron = Orbitron({ subsets: ['latin'] })
 const pressStart = Press_Start_2P({
   subsets: ["latin"],
   weight: "400",
