@@ -19,7 +19,7 @@ const RetroCard = ({ title, children }) => {
   return (
     <div className="backdrop-blur-sm bg-black/20 border border-purple-500/30 rounded-lg p-6 shadow-lg hover:shadow-purple-500/20 transition-all duration-300 relative overflow-hidden">
       <div className="absolute -top-10 -right-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl rounded-full"></div>
-      <h3 className="text-xl font-bold mb-4 text-white">{title}</h3>
+      <h3 className="text-xl font-bold mb-4 text-zinc">{title}</h3>
       <div className="text-gray-300 relative z-10">{children}</div>
       <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-zenith-purple to-zenith-blue w-full opacity-50"></div>
     </div>
@@ -192,7 +192,13 @@ const About = () => {
                     date: "Mar 28, 2025",
                     title: "Panel Discussions",
                     description: "Industry experts share their insights",
+                  },{
+                    time: "10:00 AM",
+                    date: "Mar 28, 2025",
+                    title: "Panel Discussions",
+                    description: "Industry experts share their insights",
                   },
+                  
                   {
                     time: "4:00 PM",
                     date: "Mar 28, 2025",
@@ -210,13 +216,15 @@ const About = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-ping opacity-75"></div>
                       </div>
                       <div className="w-full p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 transform transition-all duration-300 hover:scale-105 hover:bg-white/10">
-                        <div className="font-press-start text-sm text-zenith-blue mb-2">
+                        <div className="font-press-start text-sm text-stone-800 mb-2">
                           {event.time} - {event.date}
                         </div>
-                        <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-pink-200 to-blue-200 bg-clip-text text-transparent">
+                        <h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-stone-800 to-zinc-800 bg-clip-text text-transparent">
                           {event.title}
-                        </h3>
-                        <p className="text-gray-300">{event.description}</p>
+                        </h2>
+                        <p className="bg-gradient-to-r from-stone-800 via-zinc-700 to-brown-800 bg-clip-text text-transparent font-medium">
+                          {event.description}
+                        </p>
                       </div>
                     </div>
                   </div>

@@ -95,34 +95,22 @@ export default function Events() {
           Events
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {events.map((event) => (
             <motion.div
               key={event.id}
-              className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 w-[300px] h-[400px]"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
             >
-              
-
-              <div className="p-6">
-                <h3 className="font-press-start text-xl mb-2 text-zenith-red group-hover:text-zenith-purple transition-colors">
-                  {event.title}
-                </h3>
-                <p className="text-gray-400 mb-4">{event.description}</p>
-                <div className="space-y-2 text-sm text-gray-400">
-                  <p>📅 {event.date}</p>
-                  <p>⏰ {event.time}</p>
-                  <p>📍 {event.venue}</p>
-                </div>
-                <Button
-                  onClick={() => setSelectedEvent(event)}
-                  className="mt-6 w-full bg-zenith-red hover:bg-zenith-red/80"
-                >
-                  Learn More
-                </Button>
-              </div>
+              <Image
+                src="/tobeannounced.png"
+                alt={event.title}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
             </motion.div>
           ))}
         </div>
