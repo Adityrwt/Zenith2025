@@ -51,71 +51,40 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        'comfortaa': ['Comfortaa', 'cursive'],
+      },
       keyframes: {
         float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        "float-delayed": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "pulse-slow": {
-          "0%, 100%": { opacity: 1 },
-          "50%": { opacity: 0.7 },
-        },
-        "pulse-glow": {
-          "0%, 100%": {
-            opacity: 1,
-            filter: "brightness(1)",
-          },
-          "50%": {
-            opacity: 0.8,
-            filter: "brightness(1.2)",
-          },
-        },
-        "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-        meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
-          "70%": { opacity: 1 },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: 0,
-          },
-        },
-        "text-gradient": {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        }
       },
       animation: {
-        float: "float 6s ease-in-out infinite",
-        "float-delayed": "float-delayed 6s ease-in-out infinite 1s",
-        "float-slow": "float-slow 8s ease-in-out infinite 2s",
-        "pulse-slow": "pulse-slow 4s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
-        "spin-slow": "spin-slow 20s linear infinite",
-        meteor: "meteor 5s linear infinite",
-        "text-gradient": "text-gradient 8s ease infinite",
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'float': 'float 3s ease-in-out infinite',
       },
     },
   },
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.bg-noise': {
+          position: 'relative',
+        },
+        '.bg-noise::before': {
+          content: '""',
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'0.1\'/%3E%3C/svg%3E")',
+          opacity: '0.15',
+          pointerEvents: 'none',
+        },
+      }
+      addUtilities(newUtilities)
+    }
+  ]
 }
 

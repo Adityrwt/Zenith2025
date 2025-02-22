@@ -84,45 +84,45 @@ export default function Events() {
   const [selectedEvent, setSelectedEvent] = useState<typeof events[0] | null>(null)
 
   return (
-    <div className="min-h-screen pt-20 bg-black/50 backdrop-blur-sm">
+    <div className="min-h-screen pt-20 relative">
+      {/* Background Image */}
+      <div className="fixed inset-0 -z-10">
+        <Image
+          src="/eventbg.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      </div>
+
       <div className="container mx-auto px-4 py-12">
         <motion.h1
-          className="font-press-start text-4xl text-center mb-12 bg-gradient-to-r from-zenith-red to-zenith-blue bg-clip-text text-transparent"
+          className="font-extrabold text-6xl text-center mb-12 bg-gradient-to-r from-zenith-red to-zenith-blue bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Events
+          EVENTS
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {events.map((event) => (
             <motion.div
               key={event.id}
-              className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 w-[300px] h-[400px]"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
             >
-              
-
-              <div className="p-6">
-                <h3 className="font-press-start text-xl mb-2 text-zenith-red group-hover:text-zenith-purple transition-colors">
-                  {event.title}
-                </h3>
-                <p className="text-gray-400 mb-4">{event.description}</p>
-                <div className="space-y-2 text-sm text-gray-400">
-                  <p>📅 {event.date}</p>
-                  <p>⏰ {event.time}</p>
-                  <p>📍 {event.venue}</p>
-                </div>
-                <Button
-                  onClick={() => setSelectedEvent(event)}
-                  className="mt-6 w-full bg-zenith-red hover:bg-zenith-red/80"
-                >
-                  Learn More
-                </Button>
-              </div>
+              <Image
+                src="/tobeannounced.png"
+                alt={event.title}
+                fill
+                className="object-cover rounded-lg"
+                priority
+              />
             </motion.div>
           ))}
         </div>

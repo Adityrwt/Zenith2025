@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -11,7 +11,10 @@ body {
     text-wrap: balance;
   }
 }
-
+.animate-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
