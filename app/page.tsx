@@ -80,6 +80,30 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+        {/* Animated Arrow */}
+        <motion.div 
+          className="fixed top-6 right-16 z-50 hidden sm:block"
+          animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ 
+            duration: 1.5, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <svg 
+            width="32" 
+            height="24" 
+            viewBox="0 0 32 24" 
+            fill="none" 
+            stroke="black"
+            strokeWidth="2.5"
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <polyline points="16 5 27 12 16 19" />
+          </svg>
+        </motion.div>
+
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none z-0 bg-fixed">
           <Image
@@ -107,7 +131,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1
-            className="font-retro-futurism text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent"
+            className="font-retro-futurism text-4xl sm:text-6xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
