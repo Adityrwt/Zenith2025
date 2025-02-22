@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import React, { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { DownloadButton } from "@/components/download-button"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -16,78 +17,99 @@ const navItems = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
-    <nav className=" w-full bg-cosmic-gradient backdrop-blur-md border-b border-purple-500/30">
-      <div className="relative">   
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex-shrink-0 relative group">
-              <Link href="/" className="relative block">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HqsSd8ODyl1cpMzjdbPprhLRQeFXNI.png"
-                  alt="Zenith Logo"
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto transition-all duration-300 group-hover:opacity-90"
-                />
-                {/* Logo glow effect */}
-                <div className="absolute inset-0 bg-fuchsia-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
-              </Link>
-            </div>
+    <div className="relative">
+      {/* Hamburger Button */}
+      <button
+        onClick={toggleMenu}
+        className={`fixed top-4 right-4 z-50 p-2 rounded-full bg text-white shadow-lg transition-all duration-300 ${
+          isOpen ? 'opacity-0' : 'opacity-100'
+        }`}
+        aria-label="Open Menu"
+      >
+        <Menu size={24} />
+      </button>
 
-            {/* Desktop menu */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="relative group"
-                  >
-                    <span className="font-press-start text-sm text-gray-300 group-hover:text-fuchsia-400 transition-colors duration-200">
-                      {item.name}
-                    </span>
-                    {/* Neon underline effect */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-fuchsia-500 group-hover:w-full transition-all duration-300 ease-out" />
-                    {/* Glow effect */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-fuchsia-400 opacity-50 blur-sm group-hover:w-full transition-all duration-300 ease-out" />
-                  </Link>
-                ))}
-              </div>
-            </div>
+      {/* Fullscreen Navigation Menu with Top-Right Origin Animation */}
+      <div
+        className={`fixed inset-0 bg-gradient-to-br from-pink-200/90 via-blue-200/90 to-gray-200/90 backdrop-blur-sm 
+        flex flex-col items-center justify-center transform transition-all duration-500 ease-in-out z-40 ${
+          isOpen 
+            ? 'opacity-100 scale-100' 
+            : 'opacity-0 scale-0 pointer-events-none'
+        }`}
+        style={{
+          transformOrigin: 'top right',
+          transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+        }}
+      >
+        {/* Close Button */}
+        <button
+          onClick={toggleMenu}
+          className="absolute top-4 right-4 p-2 rounded-full bg hover:bg transition-colors duration-200"
+          aria-label="Close Menu"
+        >
+          <X size={24} />
+        </button>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-fuchsia-300 hover:text-white hover:bg-purple-900/50 focus:outline-none transition-colors duration-200"
+        {/* Logo Area */}
+        <div className="absolute top-8 left-8">
+          <Link href="/" className="relative block">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HqsSd8ODyl1cpMzjdbPprhLRQeFXNI.png"
+              alt="Zenith Logo"
+              width={120}
+              height={40}
+              className="h-8 w-auto transition-all duration-300 hover:opacity-90"
+            />
+          </Link>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="w-full max-w-md -translate-x-20">
+          <ul className="space-y-8">
+            {navItems.map((item, index) => (
+              <li 
+                key={item.name} 
+                className="text-left pl-12"
+                style={{ 
+                  transitionDelay: isOpen ? `${(index + 1) * 100}ms` : '0ms',
+                  opacity: isOpen ? 1 : 0,
+                  transform: isOpen ? 'translateY(0)' : 'translateY(-30px)',
+                  transition: 'opacity 400ms, transform 400ms'
+                }}
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
+                <Link
+                  href={item.href}
+                  className="inline-block text-stone-800 text-3xl font-comfortaa transition-all duration-300 
+                    hover:text-pink-400 hover:scale-110 hover:-rotate-3 hover:translate-x-4 
+                    focus:outline-none focus:text-pink-400 
+                    animate-float"
+                  onClick={toggleMenu}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Download Button */}
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-xs">
+          <div className="flex justify-center">
+            <DownloadButton />
           </div>
+        </div>
+
+        {/* Footer */}
+        <div className="absolute bottom-8 w-full text-center text-sm text-stone-600">
+          <p>© 2025 Zenith E-Summit</p>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 backdrop-blur-lg border-b border-purple-500/30">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-press-start text-gray-300 hover:text-fuchsia-400 hover:bg-purple-900/30 transition-all duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                <span className="relative group-hover:text-fuchsia-400">
-                  {item.name}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </nav>
+    </div>
   )
 }

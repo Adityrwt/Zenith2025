@@ -26,7 +26,11 @@ export default class MyDocument extends Document {
 	render() {
 		return (
 			<Html>
-				<Head />
+				<Head>
+					{/* Include Vanta.js and Three.js scripts */}
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.clouds2.min.js"></script>
+				</Head>
 				<body>
 					<Main />
 					<NextScript />

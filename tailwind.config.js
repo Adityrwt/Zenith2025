@@ -51,70 +51,17 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        'comfortaa': ['Comfortaa', 'cursive'],
+      },
       keyframes: {
         float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        "float-delayed": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        "float-slow": {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "pulse-slow": {
-          "0%, 100%": { opacity: 1 },
-          "50%": { opacity: 0.7 },
-        },
-        "pulse-glow": {
-          "0%, 100%": {
-            opacity: 1,
-            filter: "brightness(1)",
-          },
-          "50%": {
-            opacity: 0.8,
-            filter: "brightness(1.2)",
-          },
-        },
-        "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
-        meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: 1 },
-          "70%": { opacity: 1 },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: 0,
-          },
-        },
-        "text-gradient": {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        }
       },
       animation: {
-        float: "float 6s ease-in-out infinite",
-        "float-delayed": "float-delayed 6s ease-in-out infinite 1s",
-        "float-slow": "float-slow 8s ease-in-out infinite 2s",
-        "pulse-slow": "pulse-slow 4s ease-in-out infinite",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
-        "spin-slow": "spin-slow 20s linear infinite",
-        meteor: "meteor 5s linear infinite",
-        "text-gradient": "text-gradient 8s ease infinite",
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        'cosmic-gradient': 'linear-gradient(to right, rgba(219, 180, 197, 0.8), rgba(179, 168, 219, 0.8), rgba(116, 147, 179, 0.8), rgba(51, 85, 102, 0.9))',
+        'float': 'float 3s ease-in-out infinite',
       },
     },
   },
