@@ -5,7 +5,13 @@ import { useEffect, useRef } from "react"
 import * as THREE from 'three'
 
 // Neon Text Component
-const NeonText = ({ children, className = "" }) => {
+// Neon Text Component
+interface NeonTextProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const NeonText = ({ children, className = "" }: NeonTextProps) => {
   return (
     <h2 className={`font-press-start text-3xl relative ${className}`}>
       <span className="absolute blur-md opacity-70 text-pink-600">{children}</span>
@@ -15,7 +21,12 @@ const NeonText = ({ children, className = "" }) => {
 }
 
 // Retro-Futuristic Card
-const RetroCard = ({ title, children }) => {
+interface RetroCardProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+const RetroCard = ({ title, children }: RetroCardProps) => {
   return (
     <div className="backdrop-blur-sm bg-black/20 border border-purple-500/30 rounded-lg p-6 shadow-lg hover:shadow-purple-500/20 transition-all duration-300 relative overflow-hidden">
       <div className="absolute -top-10 -right-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl rounded-full"></div>
@@ -32,15 +43,17 @@ const RetroPattern = () => {
     <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
       <div className="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(20,1fr)]">
         {Array(20).fill().map((_, i) => (
-          Array(20).fill().map((_, j) => (
-            <div 
-              key={`${i}-${j}`} 
-              className="border border-purple-500/30"
-              style={{
-                opacity: Math.random() * 0.5 + 0.1
-              }}
-            />
-          ))
+          <div key={`row-${i}`} className="grid grid-cols-[repeat(20,1fr)]">
+            {Array(20).fill().map((_, j) => (
+              <div 
+                key={`${i}-${j}`} 
+                className="border border-purple-500/30"
+                style={{
+                  opacity: Math.random() * 0.5 + 0.1
+                }}
+              />
+            ))}
+          </div>
         ))}
       </div>
       <div className="absolute inset-0 flex items-center justify-center">
