@@ -80,6 +80,30 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+        {/* Animated Arrow */}
+        <motion.div 
+          className="fixed top-6 right-16 z-50 hidden sm:block"
+          animate={{ x: [0, 10, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ 
+            duration: 1.5, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <svg 
+            width="32" 
+            height="24" 
+            viewBox="0 0 32 24" 
+            fill="none" 
+            stroke="black"
+            strokeWidth="2.5"
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <polyline points="16 5 27 12 16 19" />
+          </svg>
+        </motion.div>
+
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none z-0 bg-fixed">
           <Image
@@ -107,7 +131,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1
-            className="font-retro-futurism text-8xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent"
+            className="font-retro-futurism text-4xl sm:text-6xl md:text-8xl mb-6 animate-text-gradient bg-gradient-to-r from-stone-900 to-brown-600 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -129,37 +153,29 @@ export default function Home() {
         
       </section>
 
-      <section className="py-20 bg-cosmic-gradient backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-          <motion.h2
-            className="font-press-start text-3xl md:text-4xl text-center mb-12 animate-text-gradient bg-gradient-to-r from-zenith-red to-zenith-blue bg-clip-text text-transparent"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-12 sm:py-20 bg-white backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
             {features.map((feature, index) => (
               <motion.button
                 key={index}
                 onClick={() => setSelectedFeature(feature)}
-                className="group relative p-6 rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+                className="group relative w-[320px] md:w-[380px] h-[475px] md:h-[565px] mx-auto rounded-lg border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-zenith-red/0 via-zenith-purple/10 to-zenith-blue/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-
-                <feature.icon className="w-8 h-8 mb-4 text-zenith-red group-hover:text-zenith-purple transition-colors" />
-                <h3 className="font-press-start text-xl mb-4 text-zenith-red group-hover:text-zenith-purple transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{feature.description}</p>
-
-                <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zenith-red to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <div className="absolute inset-0 duration-300 rounded-lg" />
+                
+                <Image
+                  src="/speakercard.jpeg"
+                  alt={feature.title}
+                  width={380}
+                  height={565}
+                  className="w-full h-full object-cover rounded-lg"
+                  priority
+                />
               </motion.button>
             ))}
           </div>

@@ -7,11 +7,11 @@ import Image from 'next/image'
 import { DownloadButton } from "@/components/download-button"
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Events", href: "/events" },
-  { name: "Sponsors", href: "/sponsors" },
-  { name: "Register", href: "/register" },
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/about" },
+  { name: "EVENTS", href: "/events" },
+  { name: "SPONSORS", href: "/sponsors" },
+  { name: "REGISTER", href: "/register" },
 ]
 
 export function Navbar() {
@@ -57,25 +57,25 @@ export function Navbar() {
         </button>
 
         {/* Logo Area */}
-        <div className="absolute top-8 left-8">
+        <div className="absolute top-4 sm:top-8 left-4 sm:left-8">
           <Link href="/" className="relative block">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HqsSd8ODyl1cpMzjdbPprhLRQeFXNI.png"
               alt="Zenith Logo"
-              width={120}
-              height={40}
-              className="h-8 w-auto transition-all duration-300 hover:opacity-90"
+              width={100}
+              height={35}
+              className="h-6 sm:h-8 w-auto transition-all duration-300 hover:opacity-90"
             />
           </Link>
         </div>
 
         {/* Navigation Links */}
-        <nav className="w-full max-w-md -translate-x-20">
-          <ul className="space-y-8">
+        <nav className="w-full max-w-md px-4 sm:px-0">
+          <ul className="space-y-6 sm:space-y-8 text-center">
             {navItems.map((item, index) => (
               <li 
                 key={item.name} 
-                className="text-left pl-12"
+                className="pl-0"
                 style={{ 
                   transitionDelay: isOpen ? `${(index + 1) * 100}ms` : '0ms',
                   opacity: isOpen ? 1 : 0,
@@ -85,8 +85,8 @@ export function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="inline-block text-stone-800 text-3xl font-comfortaa transition-all duration-300 
-                    hover:text-pink-400 hover:scale-110 hover:-rotate-3 hover:translate-x-4 
+                  className="inline-block text-stone-800 text-xl sm:text-2xl md:text-3xl font-['Bangers'] tracking-wider transition-all duration-300 
+                    hover:text-pink-400 hover:scale-110 hover:-rotate-3
                     focus:outline-none focus:text-pink-400 
                     animate-float"
                   onClick={toggleMenu}
@@ -98,15 +98,28 @@ export function Navbar() {
           </ul>
         </nav>
 
-        {/* Download Button */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-xs">
+        {/* Logo Area - Updated for mobile */}
+        <div className="absolute top-4 sm:top-8 left-4 sm:left-8">
+          <Link href="/" className="relative block">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-HqsSd8ODyl1cpMzjdbPprhLRQeFXNI.png"
+              alt="Zenith Logo"
+              width={100}
+              height={35}
+              className="h-6 sm:h-8 w-auto transition-all duration-300 hover:opacity-90"
+            />
+          </Link>
+        </div>
+
+        {/* Download Button - Updated for mobile */}
+        <div className="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-xs px-4">
           <div className="flex justify-center">
             <DownloadButton />
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="absolute bottom-8 w-full text-center text-sm text-stone-600">
+        {/* Footer - Updated for mobile */}
+        <div className="absolute bottom-4 sm:bottom-8 w-full text-center text-xs sm:text-sm text-stone-600">
           <p>© 2025 Zenith E-Summit</p>
         </div>
       </div>
