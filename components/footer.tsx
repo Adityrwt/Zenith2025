@@ -32,15 +32,35 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <h3 className="font-press-start text-base mb-3 bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">Social</h3>
             <div className="flex space-x-4">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a 
-                  key={i}
-                  href="#" 
-                  className="text-gray-600 hover:text-pink-400 transition-colors"
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
+              <a 
+                href="https://zenith-peach.vercel.app/" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-pink-400 transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://zenith-peach.vercel.app/" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-pink-400 transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/edcell.mait/" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-pink-400 transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/edcell-mait-b17184173/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-pink-400 transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>
