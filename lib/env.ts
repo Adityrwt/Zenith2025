@@ -2,8 +2,7 @@ export function validateEnv() {
   const requiredEnvVars = [
     'NEXTAUTH_URL',
     'NEXTAUTH_SECRET',
-    'ADMIN_EMAIL',
-    'ADMIN_PASSWORD',
+    
   ]
 
   for (const envVar of requiredEnvVars) {
