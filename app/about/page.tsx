@@ -42,9 +42,9 @@ const RetroPattern = () => {
   return (
     <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">
       <div className="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(20,1fr)]">
-        {Array(20).fill().map((_, i) => (
+        {Array(20).fill(undefined).map((_, i) => (
           <div key={`row-${i}`} className="grid grid-cols-[repeat(20,1fr)]">
-            {Array(20).fill().map((_, j) => (
+            {Array(20).fill(undefined).map((_, j) => (
               <div 
                 key={`${i}-${j}`} 
                 className="border border-purple-500/30"
@@ -94,9 +94,14 @@ const RetroScanner = () => {
 // Add this import at the top
 import { motion, useScroll, useTransform } from "framer-motion"
 
+// Add type definition for vanta effect
+interface VantaEffect {
+  destroy: () => void;
+}
+
 const About = () => {
-  const vantaRef = useRef(null)
-  const vantaEffect = useRef(null)
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<VantaEffect | null>(null);
   
   // Add scroll animation logic
   const { scrollY } = useScroll()
@@ -105,8 +110,8 @@ const About = () => {
 
   useEffect(() => {
     const loadVanta = async () => {
-      const FOG = (await import('vanta/dist/vanta.fog.min')).default
-      if (!vantaEffect.current) {
+      const FOG = (await import('vanta/dist/vanta.fog.min')).default;
+      if (!vantaEffect.current && vantaRef.current) {
         vantaEffect.current = FOG({
           el: vantaRef.current,
           THREE: THREE,
@@ -119,9 +124,9 @@ const About = () => {
           midtoneColor: 0xe14ecd,
           lowlightColor: 0xc4c0dc,
           speed: 2
-        })
+        });
       }
-    }
+    };
     
     loadVanta()
     
