@@ -297,8 +297,17 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Spacetravel 
-                videoSrc="/space.mp4"
-                videoTitle="COSMIC_JOURNEY.MP4" 
+                videoSrc="/spacevid.mp4"
+                videoTitle={
+                  <a 
+                    href="https://www.instagram.com/zeekuworld?igsh=YjU0cXR5amFvd2Jh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-400 text-white transition-colors duration-300"
+                  >
+                    Video credit - @zeekuworld
+                  </a>
+                }
               />
             </motion.div>
           </div>

@@ -4,7 +4,7 @@ import { Play, Pause, SkipBack, SkipForward } from 'lucide-react';
 
 interface VideoPlayerProps {
   videoSrc?: string;
-  videoTitle?: string;
+  videoTitle?: string | React.ReactNode;
 }
 
 const Spacetravel: React.FC<VideoPlayerProps> = ({
@@ -113,7 +113,7 @@ const Spacetravel: React.FC<VideoPlayerProps> = ({
                 <SkipForward size={20} />
               </motion.button>
             </div>
-            <div className="text-blue-100/70 font-light tracking-wider text-sm">
+            <div className="text-blue-100/70 font-light tracking-wider text-sm cursor-pointer">
               {videoTitle}
             </div>
           </div>
