@@ -4,13 +4,13 @@ export function DownloadButton() {
   return (
     <button 
       onClick={() => window.open('/brochure.pdf', '_blank')}
-      className="group relative px-6 py-3 bg-black/20 backdrop-blur-sm border border-purple-500/30 
-      rounded-lg font-press-start text-sm text-purple-200 transition-all duration-300 
-      hover:text-pink-200 hover:border-pink-500/50 overflow-hidden"
+      className="group relative px-6 py-3 bg-white/90 backdrop-blur-sm border border-violet-500/50 
+      rounded-lg font-press-start text-sm text-violet-600 transition-all duration-300 
+      hover:text-violet-800 hỏ̉̉̉̉̉ver:border-violet-600 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 
-        group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all duration-300"></div>
-      <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-purple-500/50 to-pink-500/50 
+      <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-violet-600/5 
+        group-hover:from-violet-500/10 group-hover:to-violet-600/10 transition-all duration-300"></div>
+      <div className="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-violet-500 to-violet-600 
         transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
       <div className="relative flex items-center space-x-2">
         <span>Download Brochure</span>

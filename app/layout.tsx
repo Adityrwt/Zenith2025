@@ -37,16 +37,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
       <body className={`${pressStart.variable} ${spaceGrotesk.variable} font-sans bg-black text-white`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
+          forcedTheme="dark"
         >
           <AnimatePresence mode="wait">
             <Suspense fallback={<LoadingScreen />}>
-            
               <div className="relative min-h-screen flex flex-col z-10">
                 <Navbar />
                 <main className="flex-grow">{children}</main>
