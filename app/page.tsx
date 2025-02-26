@@ -22,13 +22,18 @@ const features = [
       content: `Experience inspiring talks from industry pioneers and thought leaders who are shaping the future of technology and entrepreneurship. Our carefully curated lineup of speakers will share their insights, experiences, and vision for the future.`,
       animation: "animate-float",
       images: [
+        "/speakers/AnjitSuhag.jpeg",
         "/speakers/Dr.MunishJindal.jpeg",
         "/speakers/Dr.NancyJ.jpeg",
         "/speakers/JhalakGupta.jpeg",
-        "/speakers/Shrey.jpeg",  // Updated to match exact file name
+        "/speakers/Shrey.jpeg",
         "/speakers/SanyaDuggal.jpeg"
       ],
       speakers: [
+        {
+          name: "Anjit Suhag",
+          title: "Founder @Mudgar Club AS SEEN ON SHARK TANK"
+        },
         {
           name: "Dr. Munish Jindal",
           title: "Founder and CEO - HoverRobotix\nFounding President - MENTORx"
@@ -48,7 +53,8 @@ const features = [
         {
           name: "Sanya Duggal",
           title: "Partner Go-to-Market & Strategy Manager | Microsoft"
-        }
+        },
+       
       ]
     },
   },
@@ -203,9 +209,9 @@ export default function Home() {
         onClose={() => setSelectedFeature(null)}
         title={selectedFeature?.details.title || ""}
       >
-        <motion.div className="relative bg-amber-50/95 p-6 rounded-lg" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div className="relative bg-amber-50/95 p-6 rounded-lg max-h-[70vh] overflow-y-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           {selectedFeature?.title === "Keynote Speakers" && selectedFeature.details.images && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 overflow-y-auto">
               {selectedFeature.details.images.map((image, index) => (
                 <div key={index} className="space-y-2">
                   <div className="relative aspect-square shadow-lg rounded-lg overflow-hidden">

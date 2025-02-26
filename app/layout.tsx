@@ -37,15 +37,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body 
-        className={`${pressStart.variable} ${spaceGrotesk.variable} font-sans bg-black text-white`}
-        suppressHydrationWarning
-      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
+          forcedTheme="dark"
         >
           <AnimatePresence mode="wait">
             <Suspense fallback={<LoadingScreen />}>
