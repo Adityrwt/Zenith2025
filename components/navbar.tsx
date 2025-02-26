@@ -77,10 +77,7 @@ export function Navbar() {
                 key={item.name} 
                 className="pl-0"
                 style={{ 
-                  transitionProperty: 'opacity, transform',
-                  transitionDuration: '400ms',
-                  transitionTimingFunction: 'ease',
-                  transitionDelay: isOpen ? `${(index + 1) * 100}ms` : '0ms',
+                  
                   opacity: isOpen ? 1 : 0,
                   transform: isOpen ? 'translateY(0)' : 'translateY(-30px)',
                 }}

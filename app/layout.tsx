@@ -37,8 +37,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
-      <body className={`${pressStart.variable} ${spaceGrotesk.variable} font-sans bg-black text-white`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

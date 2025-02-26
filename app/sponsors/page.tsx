@@ -173,6 +173,7 @@ export default function SponsorsPage() {
                   src={sponsor.logo}
                   alt={sponsor.name}
                   fill
+                  sizes="(max-width:768px) 8rem 8 rem"
                   className="object-contain p-2"
                 />
               </a>
